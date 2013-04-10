@@ -1,0 +1,8 @@
+<div class="comments">
+<%= render partial: 'comment', object: @comment %>
+
+<% @comment.descendants.each do |descendant| %>
+  <div class="indent<%= Comment.get_indent(descendant, @comment)%>"><%= render partial: 'comment', object: descendant %></div>
+<% end %>
+
+</div>

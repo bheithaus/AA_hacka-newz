@@ -1,0 +1,10 @@
+<h2><%= @user.name %>'s page</h2>
+<ul>
+  <li>User: <%= @user.name %></li>
+  <li>Created: <%= @user.created_at.strftime("%B %d, %Y") %></li>
+  <li>Karma: <%= @user.karma %></li>
+  <li>Average: <%= @user.average %></li>
+</ul>
+
+<%= link_to "Submissions", user_links_path(@user) %> <br/>
+<%= link_to "Comments", "" %>

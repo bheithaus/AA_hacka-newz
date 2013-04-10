@@ -1,0 +1,22 @@
+<h2 class="left">Log In</h2>
+<%= form_tag(session_url, :method => :post) do %>
+  <%= label_tag "user[name]", "Username" %>
+  <%= text_field_tag "user[name]" %>
+  <br>
+  <%= label_tag "user[password]", "Password" %>
+  <%= password_field_tag "user[password]" %>
+  <br>
+  <%= submit_tag "Sign In!" %>
+<% end %>
+
+<h2 class="left">Create Account</h2>
+<%= form_tag(users_url, :method => :post) do %>
+  <%= label_tag "user[name]", "Username" %>
+  <%= text_field_tag "user[name]" %>
+  <br>
+  <%= label_tag "user[password]", "Password" %>
+  <%= password_field_tag "user[password]" %>
+  <br>
+  <%= submit_tag "Create Account!" %>
+<% end %>
+

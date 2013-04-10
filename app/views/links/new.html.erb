@@ -1,0 +1,15 @@
+<%= form_for(@link) do |f| %>
+  <ul>
+  <% @link.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br>
+  <%= hidden_field_tag "link[author_id]", current_user.id %>
+  <%= f.submit "Submit Link" %>
+<% end %>
