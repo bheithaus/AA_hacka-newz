@@ -4,7 +4,7 @@
   <% @links.each do |link| %>
     <li><%= link_to image_tag("uparrow.gif"), up_path(link_id: link.id), method: :post %>
 
-      Link: <%= link_to link.title, link.url %></li>
+      Link: <%= link_to link.title, link.url, :target => "_blank" %></li>
     <div class="votes"><%= link.vote_sum%> points by <%= link.author.name %>
                         <%= time_ago_in_words(link.created_at) %> |
                         <%= link.number_of_comments %> comments</div>

@@ -3,12 +3,12 @@ class Comment < ActiveRecord::Base
                   :link_id, :ancestor_ids, :descendant_ids
 
   belongs_to :commentor, class_name: "User", foreign_key: "commentor_id"
-  belongs_to :link
+  belongs_to :link, inverse_of: :comment
   has_many :ancestor_relations, class_name: "Relation", foreign_key: "descendant_id"
   has_many :descendant_relations, class_name: "Relation", foreign_key: "ancestor_id"
   has_many :ancestors, through: :ancestor_relations
   has_many :descendants, through: :descendant_relations
-  validates :content, :commentor_id, :link_id, presence: true
+  validates :content, :commentor_id, :link, presence: true
 
   def get_ancestors
     self.ancestors

@@ -10,6 +10,12 @@
   <%= f.label :url %>
   <%= f.text_field :url %>
   <br>
-  <%= hidden_field_tag "link[author_id]", current_user.id %>
-  <%= f.submit "Submit Link" %>
+  <%= f.submit "Submit Link" %> <br><br><br>
+
+  <%= f.fields_for(:comments) do |comments_form| %>
+    <%= comments_form.label :content, "Comment" %>
+    <%= comments_form.text_area :content %>
+
+  <% end %>
+
 <% end %>

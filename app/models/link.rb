@@ -1,9 +1,11 @@
 class Link < ActiveRecord::Base
-  attr_accessible :url, :author_id, :title
+  attr_accessible :url, :author_id, :title, :comments_attributes
 
-  has_many :comments
+  has_many :comments, inverse_of: :link
   has_many :link_votes
   belongs_to :author, class_name: "User"
+
+  accepts_nested_attributes_for :comments, reject_if: :all_blank
 
   validates :title, :url, :author_id, presence: true
 

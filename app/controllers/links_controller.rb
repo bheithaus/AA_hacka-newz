@@ -11,17 +11,18 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    @link.comments.build
   end
 
   def create
     @link = Link.new(params[:link])
+    @link.author_id = current_user.id
     if @link.save
       flash[:success] = "You have added #{@link.title} to Hacka News"
       redirect_to root_url
     else
       render :new
     end
-
   end
 
   private
